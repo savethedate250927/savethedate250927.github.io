@@ -198,52 +198,43 @@ transform: translate3d(-90px,0,0);
 }
 
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: min-content;
-    gap: 8px;
+    columns: 2;
+    column-gap: 8px;
     padding: 0 20px;
-    max-height: 600px;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
     position: relative;
 }
 
-.gallery-grid::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100px;
-    background: linear-gradient(to bottom, transparent, #f8f8f8);
-    pointer-events: none;
-}
 
-.gallery-grid.expanded {
-    max-height: none;
-    display: block;
-    column-count: 2;
-    column-gap: 8px;
-}
-
-.gallery-grid.expanded::after {
-    display: none;
-}
 
 .gallery-item {
     break-inside: avoid;
     margin-bottom: 8px;
     overflow: hidden;
+    display: block;
 }
 
-.gallery-grid.expanded .gallery-item {
-    display: block;
-    margin-bottom: 8px;
+.gallery-item:nth-child(3n+1) img {
+    aspect-ratio: 3/4;
+}
+
+.gallery-item:nth-child(3n+2) img {
+    aspect-ratio: 4/5;
+}
+
+.gallery-item:nth-child(3n+3) img {
+    aspect-ratio: 5/6;
+}
+
+.gallery-item:nth-child(5n+1) img {
+    aspect-ratio: 4/3;
+}
+
+.gallery-item:nth-child(7n+1) img {
+    aspect-ratio: 1/1;
 }
 
 .calendar-container {
-    padding: 20px;
+    padding: 100px 20px 20px 20px;
     text-align: center;
     max-width: 350px;
     margin: 0 auto;
@@ -306,29 +297,7 @@ transform: translate3d(-90px,0,0);
     width: 100%;
 }
 
-.expand-btn {
-    text-align: center;
-    margin-top: 20px;
-    padding: 15px 0;
-}
 
-.expand-btn button {
-    background: #FDFCFA;
-    border: 2px solid #ddd;
-    color: #666;
-    padding: 12px 30px;
-    font-family: 'Gowun Dodum', sans-serif;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-}
-
-.expand-btn button:hover {
-    background: #e8e8e8;
-    border-color: #ccc;
-    color: #333;
-}
 
 .gallery-item img {
     width: 100%;
@@ -337,6 +306,7 @@ transform: translate3d(-90px,0,0);
     transition: transform 0.3s ease;
     display: block;
     border-radius: 8px;
+    aspect-ratio: auto;
 }
 
 .gallery-item img:hover {
@@ -778,6 +748,41 @@ transform: translate3d(-90px,0,0);
     height: auto;
     display: block;
 }
+
+.videobg1-container {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+.videobg1-wrapper {
+    position: relative;
+    width: calc(100% - 80px);
+    margin: 40px;
+    border-radius: 12px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 2.5s ease-out forwards;
+    animation-delay: 0.5s;
+}
+.videobg1-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 .imgbg2-container {
     width: 100%;
     max-width: 450px;
@@ -796,7 +801,7 @@ transform: translate3d(-90px,0,0);
 .imgbg2-text {
     position: absolute;
     right: 0;
-    bottom: 24%;
+    bottom: 76%;
     width: 80%;
     color: #fff;
     font-family: 'Gowun Dodum', sans-serif;

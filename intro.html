@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .intro-image {
+            width: 600px;
+            height: auto;
+            display: block;
+            animation: fade-in-scale 2s ease-out forwards;
+            transform-origin: center;
+            max-width: 600px;
+            position: relative;
+        }
+        
+        .wedding-text {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            font-family: 'Crimson Pro', serif;
+            font-size: 32px;
+            color: #ffffff;
+            font-weight: 500;
+            animation: focus-in 1.5s ease-out 1s forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fade-in-scale {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes focus-in {
+            0% {
+                opacity: 0;
+                filter: blur(12px);
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                filter: blur(0px);
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div style="position: relative; display: inline-block;">
+        <img src="./img/1.jpg" alt="Intro Image" class="intro-image">
+        <div class="wedding-text">Wedding Invitation</div>
+    </div>
+</body>
+</html>
