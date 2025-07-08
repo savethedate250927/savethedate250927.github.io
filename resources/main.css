@@ -135,7 +135,7 @@ transform: translate3d(-90px,0,0);
 .invitation-container {
     width: 100%;
     text-align: center;
-    padding: 40px 0px;
+    padding: 60px 0px;
     border-radius: 0px;
 }
 
@@ -176,7 +176,7 @@ transform: translate3d(-90px,0,0);
 .gallery-container {
     width: 100%;
     text-align: center;
-    padding: 40px 0px;
+    padding: 60px 0px;
     border-radius: 0px;
 }
 
@@ -426,7 +426,7 @@ transform: translate3d(-90px,0,0);
 .map-container {
     border-radius: 0px;
     margin: 40px 0 0 0;
-    padding: 40px 0 32px 0;
+    padding: 60px 0 20px 0;
     text-align: center;
 }
 .map-location-title {
@@ -476,7 +476,7 @@ transform: translate3d(-90px,0,0);
     border: none;
 }
 .map-image-btn-wrap {
-    padding: 0 0 40px 0;
+    padding: 0 0 20px 0;
     text-align: center;
     margin-top: 24px;
 }
@@ -558,7 +558,7 @@ transform: translate3d(-90px,0,0);
 .direction-container {
     border-radius: 0px;
     margin: 0 0 40px 0;
-    padding: 40px 0 40px 0;
+    padding: 20px 0 40px 0;
     text-align: left;
     width: 90%;
     max-width: 400px;
@@ -742,6 +742,7 @@ transform: translate3d(-90px,0,0);
     width: 100%;
     max-width: 450px;
     margin: 0 auto;
+    padding: 60px 0;
 }
 .imgbg1-container .image-wrapper img {
     width: 100%;
@@ -753,12 +754,33 @@ transform: translate3d(-90px,0,0);
     width: 100%;
     max-width: 450px;
     margin: 0 auto;
-    padding: 40px 0;
+    padding: 20px 0;
+    position: relative;
+}
+.videobg1-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 1px;
+    border-top: 1px dotted #c8a6a6;
+}
+.videobg1-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 1px;
+    border-top: 1px dotted #c8a6a6;
 }
 .videobg1-wrapper {
     position: relative;
-    width: calc(100% - 80px);
-    margin: 40px;
+    width: calc(100% - 40px);
+    margin: 20px;
     border-radius: 12px;
     overflow: hidden;
     opacity: 0;
