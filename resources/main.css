@@ -234,7 +234,7 @@ transform: translate3d(-90px,0,0);
 }
 
 .calendar-container {
-    padding: 100px 20px 20px 20px;
+    padding: 80px 20px 20px 20px;
     text-align: center;
     max-width: 350px;
     margin: 0 auto;
@@ -242,7 +242,7 @@ transform: translate3d(-90px,0,0);
 
 .calendar-title {
     font-family: 'Crimson Pro', serif;
-    font-size: 24px;
+    font-size: 32px;
     color: #b97c86;
     margin-bottom: 8px;
 }
@@ -426,7 +426,7 @@ transform: translate3d(-90px,0,0);
 .map-container {
     border-radius: 0px;
     margin: 40px 0 0 0;
-    padding: 60px 0 20px 0;
+    padding: 80px 0 20px 0;
     text-align: center;
 }
 .map-location-title {
@@ -650,7 +650,8 @@ transform: translate3d(-90px,0,0);
     line-height: 1.7;
 }
 .account-accordion {
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
 }
 .account-section {
     background: #fff;
@@ -667,7 +668,7 @@ transform: translate3d(-90px,0,0);
     font-size: 14px;
     font-weight: bold;
     color: #666;
-    padding: 16px 0 12px 0;
+    padding: 12px 0 12px 0;
     text-align: center;
     cursor: pointer;
     outline: none;
@@ -761,19 +762,43 @@ transform: translate3d(-90px,0,0);
     content: '';
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70%;
+    left: 15%;
+    width: 20%;
     height: 1px;
     border-top: 1px dotted #c8a6a6;
 }
+
 .videobg1-container::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    top: 0;
+    right: 15%;
+    width: 20%;
+    height: 1px;
+    border-top: 1px dotted #c8a6a6;
+}
+
+.videobg1-love-text {
+    position: absolute;
+    top: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 70%;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 18px;
+    color: #b97c86;
+    background: #FDFCFA;
+    padding: 0 15px;
+    z-index: 1;
+    letter-spacing: 3px;
+}
+
+.videobg1-top-line-right {
+    position: absolute;
+    top: 0;
+    right: 15%;
+    width: 20%;
     height: 1px;
     border-top: 1px dotted #c8a6a6;
 }
@@ -808,7 +833,7 @@ transform: translate3d(-90px,0,0);
 .imgbg2-container {
     width: 100%;
     max-width: 450px;
-    margin: 0 auto 40px auto;
+    margin: 0 auto 10px auto;
     position: relative;
 }
 .imgbg2-wrapper {
@@ -823,7 +848,7 @@ transform: translate3d(-90px,0,0);
 .imgbg2-text {
     position: absolute;
     right: 0;
-    bottom: 76%;
+    bottom: 72%;
     width: 80%;
     color: #fff;
     font-family: 'Gowun Dodum', sans-serif;
