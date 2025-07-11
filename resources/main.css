@@ -834,28 +834,48 @@ transform: translate3d(-90px,0,0);
 }
 .imgbg2-wrapper {
     position: relative;
-    width: 100%;
+    width: calc(100% - 40px);
+    border-radius: 12px;
+    margin: 20px;
+    overflow: hidden;
 }
 .imgbg2-img {
     width: 100%;
     height: auto;
     display: block;
 }
-.imgbg2-text {
-    position: absolute;
-    right: 0;
-    bottom: 72%;
-    width: 80%;
-    color: #fff;
-    font-family: 'Gowun Dodum', sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: right;
-    line-height: 1.7;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.18);
-    z-index: 3;
-    padding-right: 32px;
+@font-face {
+  font-family: 'Bacalisties';
+  src: url('./Bacalisties.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
+
+.imgbg2-text {
+  font-family: 'Bacalisties', cursive;
+  font-size: 3rem;
+  color: #fff;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  position: absolute;
+  right: 3vw;
+  top: 8.5vw;
+  width: auto;
+  height: auto;
+  display: block;
+  text-align: left;
+  z-index: 2;
+  pointer-events: none;
+  text-shadow: none;
+  line-height: 1.2;
+  opacity: 0.8;
+}
+.imgbg2-weare {
+    font-size: 4rem;
+  letter-spacing: 0.1em;
+  margin-left: 3rem;
+}
+
 
 .reveal {
   opacity: 0;
