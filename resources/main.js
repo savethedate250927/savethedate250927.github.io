@@ -1,6 +1,63 @@
 // main.js
 // 여기에 공통 JS 코드를 작성하세요. 
 
+// 확대 방지 스크립트
+(function() {
+    let lastTouchEnd = 0;
+    let startDistance = 0;
+    let startScale = 1;
+    
+    // 터치 이벤트로 핀치 줌 방지
+    document.addEventListener('touchstart', function(event) {
+        if (event.touches.length === 2) {
+            // 두 손가락 터치 시 핀치 줌 방지
+            event.preventDefault();
+            startDistance = Math.hypot(
+                event.touches[0].clientX - event.touches[1].clientX,
+                event.touches[0].clientY - event.touches[1].clientY
+            );
+        }
+    }, { passive: false });
+    
+    document.addEventListener('touchmove', function(event) {
+        if (event.touches.length === 2) {
+            // 핀치 줌 방지
+            event.preventDefault();
+        }
+    }, { passive: false });
+    
+    document.addEventListener('touchend', function(event) {
+        const now = (new Date()).getTime();
+        const timeDiff = now - lastTouchEnd;
+        
+        if (timeDiff <= 300 && timeDiff > 0) {
+            // 더블 탭 줌 방지
+            event.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, { passive: false });
+    
+    // 더블 탭 줌 방지
+    document.addEventListener('dblclick', function(event) {
+        event.preventDefault();
+    }, { passive: false });
+    
+    // 휠 이벤트로 줌 방지
+    document.addEventListener('wheel', function(event) {
+        if (event.ctrlKey) {
+            event.preventDefault();
+        }
+    }, { passive: false });
+    
+    // 키보드 줌 방지
+    document.addEventListener('keydown', function(event) {
+        if ((event.ctrlKey || event.metaKey) && 
+            (event.key === '+' || event.key === '-' || event.key === '=' || event.key === '0')) {
+            event.preventDefault();
+        }
+    }, { passive: false });
+})();
+
 let currentImageIndex = 0;
 const images = [
     './img/11/CSJ00006.jpg',
