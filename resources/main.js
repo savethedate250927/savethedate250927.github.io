@@ -1,63 +1,6 @@
 // main.js
 // 여기에 공통 JS 코드를 작성하세요. 
 
-// 확대 방지 스크립트
-(function() {
-    let lastTouchEnd = 0;
-    let startDistance = 0;
-    let startScale = 1;
-    
-    // 터치 이벤트로 핀치 줌 방지
-    document.addEventListener('touchstart', function(event) {
-        if (event.touches.length === 2) {
-            // 두 손가락 터치 시 핀치 줌 방지
-            event.preventDefault();
-            startDistance = Math.hypot(
-                event.touches[0].clientX - event.touches[1].clientX,
-                event.touches[0].clientY - event.touches[1].clientY
-            );
-        }
-    }, { passive: false });
-    
-    document.addEventListener('touchmove', function(event) {
-        if (event.touches.length === 2) {
-            // 핀치 줌 방지
-            event.preventDefault();
-        }
-    }, { passive: false });
-    
-    document.addEventListener('touchend', function(event) {
-        const now = (new Date()).getTime();
-        const timeDiff = now - lastTouchEnd;
-        
-        if (timeDiff <= 300 && timeDiff > 0) {
-            // 더블 탭 줌 방지
-            event.preventDefault();
-        }
-        lastTouchEnd = now;
-    }, { passive: false });
-    
-    // 더블 탭 줌 방지
-    document.addEventListener('dblclick', function(event) {
-        event.preventDefault();
-    }, { passive: false });
-    
-    // 휠 이벤트로 줌 방지
-    document.addEventListener('wheel', function(event) {
-        if (event.ctrlKey) {
-            event.preventDefault();
-        }
-    }, { passive: false });
-    
-    // 키보드 줌 방지
-    document.addEventListener('keydown', function(event) {
-        if ((event.ctrlKey || event.metaKey) && 
-            (event.key === '+' || event.key === '-' || event.key === '=' || event.key === '0')) {
-            event.preventDefault();
-        }
-    }, { passive: false });
-})();
-
 let currentImageIndex = 0;
 const images = [
     './img/11/CSJ00006.jpg',
@@ -396,3 +339,67 @@ function revealOnScroll() {
 
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('DOMContentLoaded', revealOnScroll);
+
+// 우클릭 방지 및 모바일 확대 방지
+document.addEventListener('DOMContentLoaded', function() {
+    // 우클릭 방지 (PC)
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+    });
+    
+    // 모바일 확대 방지
+    document.addEventListener('touchstart', function(e) {
+        if (e.touches.length > 1) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+    
+    document.addEventListener('gesturestart', function(e) {
+        e.preventDefault();
+    });
+    
+    document.addEventListener('gesturechange', function(e) {
+        e.preventDefault();
+    });
+    
+    document.addEventListener('gestureend', function(e) {
+        e.preventDefault();
+    });
+    
+    // 갤러리 이미지 클릭은 허용
+    const galleryImages = document.querySelectorAll('.gallery-item img');
+    galleryImages.forEach(function(img) {
+        img.addEventListener('contextmenu', function(e) {
+            // 갤러리 이미지에서는 우클릭 허용 (개발자 도구 등에서 확인 가능)
+            return true;
+        });
+        
+        img.addEventListener('touchstart', function(e) {
+            // 갤러리 이미지에서는 터치 이벤트 허용
+            return true;
+        }, { passive: true });
+    });
+    
+    // 모달 내부에서는 멀티터치만 차단
+    const modal = document.getElementById('imageModal');
+    if (modal) {
+        modal.addEventListener('touchstart', function(e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+    }
+    
+    // 맵 모달 내부에서도 모든 이벤트 허용
+    const mapModal = document.getElementById('mapModal');
+    if (mapModal) {
+        mapModal.addEventListener('contextmenu', function(e) {
+            return true;
+        });
+        
+        mapModal.addEventListener('touchstart', function(e) {
+            return true;
+        }, { passive: true });
+    }
+});
